@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -26,14 +25,8 @@ jobs:
     - name: Build
       run: npm run build
       
-    - name: Copy build to docs
-      run: |
-        cp -r dist/* docs/
-        cp .nojekyll docs/
-        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
+        publish_dir: ./dist
