@@ -4,6 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  NPM_FLAGS = "--version"
+
+# Completely disable Jekyll processing
+[build.processing]
+  skip_processing = true
+
+# Explicitly set this as a Node.js application
+[build.environment]
+  NODE_ENV = "production"
 
 [[redirects]]
   from = "/*"

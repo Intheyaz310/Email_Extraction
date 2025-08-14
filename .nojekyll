@@ -1,0 +1,2 @@
+# This file tells Netlify and GitHub Pages that this is not a Jekyll site
+# It prevents the automatic Jekyll build process from running
