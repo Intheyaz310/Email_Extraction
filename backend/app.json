@@ -1,0 +1,45 @@
+{
+  "name": "email-extraction-backend",
+  "description": "Backend API for Email Extraction application",
+  "repository": "https://github.com/yourusername/email-extraction-backend",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "email", "extraction"],
+  "env": {
+    "DB_HOST": {
+      "description": "Database host URL",
+      "required": true
+    },
+    "DB_USER": {
+      "description": "Database username",
+      "required": true
+    },
+    "DB_PASSWORD": {
+      "description": "Database password",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "Database name",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "JWT secret key",
+      "required": true,
+      "generator": "secret"
+    },
+    "PYTHON_SERVICE_URL": {
+      "description": "Python AI service URL",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini"
+    }
+  ]
+}

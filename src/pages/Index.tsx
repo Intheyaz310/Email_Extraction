@@ -1,9 +1,9 @@
-
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import DestinationSearch from "@/components/search/DestinationSearch";
 import TrustBadges from "@/components/hero/TrustBadges";
 import ChromaticSmoke from "@/components/hero/ChromaticSmoke";
-import LocationScroll from "@/components/sections/LocationScroll";
 
 const Index = () => {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +26,7 @@ const Index = () => {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}>
               <span className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium">
-                Over 1000+ Destinations Available
+                Email Extraction Tool🔗
               </span>
             </div>
             
@@ -37,7 +37,7 @@ const Index = () => {
               }`}
               style={{ textShadow: "0 2px 4px rgba(0,0,0,0.2)" }}
             >
-              Discover Your Perfect Getaway
+              Extract Emails Easily
             </h1>
             
             {/* Description */}
@@ -47,7 +47,7 @@ const Index = () => {
               }`}
               style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
             >
-              Find and book your dream destination with exclusive deals and personalized recommendations
+              Get Information from any Email Address.
             </p>
             
             {/* Search Component */}
@@ -63,12 +63,27 @@ const Index = () => {
             }`}>
               <TrustBadges />
             </div>
+            
+            {/* Navigation Buttons */}
+            <div className={`transform transition-all duration-700 delay-500 ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/email-extraction">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
+                    Try Email Extraction
+                  </Button>
+                </Link>
+                <Link to="/admin">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-3">
+                    Admin Dashboard
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Location Scroll Section */}
-      <LocationScroll />
     </div>
   );
 };

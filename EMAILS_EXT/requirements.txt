@@ -1,0 +1,30 @@
+# Core AI/ML dependencies
+transformers==4.36.2
+torch==2.1.2
+spacy==3.7.2
+nltk==3.8.1
+
+# Data processing
+pandas==2.1.4
+openpyxl==3.1.2
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Email processing
+imaplib2==3.6
+email-validator==2.1.0
+
+# Utilities
+schedule==1.2.0
+python-dotenv==1.0.0
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.23.0
+
+# Web framework for API
+fastapi==0.103.2
+uvicorn[standard]==0.23.2
+pydantic==2.4.2
+
+# Additional deployment dependencies
+gunicorn==21.2.0
+python-multipart==0.0.6 

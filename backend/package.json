@@ -1,0 +1,41 @@
+{
+  "name": "email-extraction-backend",
+  "version": "1.0.0",
+  "description": "Backend for Email Extraction application",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "echo 'No build step required for Node.js backend'",
+    "test": "echo 'No tests specified'",
+    "test-db": "node test-db.js",
+    "setup-db": "node setup-db.js",
+    "setup-db-simple": "node setup-db-simple.js"
+  },
+  "keywords": [
+    "email",
+    "extraction",
+    "backend",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.2",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.0.1",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.6.1",
+    "winston": "^3.17.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

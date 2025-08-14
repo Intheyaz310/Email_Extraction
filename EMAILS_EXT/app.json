@@ -1,0 +1,24 @@
+{
+  "name": "email-extraction-ai-service",
+  "description": "Python AI service for Email Extraction application",
+  "repository": "https://github.com/yourusername/email-extraction-ai-service",
+  "logo": "https://python.org/static/community_logos/python-logo-generic.svg",
+  "keywords": ["python", "fastapi", "ai", "nlp", "email"],
+  "env": {
+    "PYTHON_VERSION": {
+      "description": "Python version",
+      "value": "3.11.0"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

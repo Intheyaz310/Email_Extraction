@@ -1,53 +1,85 @@
-# Welcome to your Lovable project
+# Email Extraction Tool
 
-## Project info
+A web application for extracting and analyzing information from email addresses. This application includes both a frontend built with React and a backend with MySQL database integration.
 
-**URL**: https://lovable.dev/projects/8d9f7020-97f6-4cf7-90ae-41252a34d3b3
+## Features
 
-## How can I edit this code?
+- Email verification and authentication
+- 5-digit verification code system
+- Email data extraction and analysis
+- User dashboard with extracted email statistics
+- MySQL database for data storage
 
-There are several ways of editing your application.
+## Setup Instructions
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8d9f7020-97f6-4cf7-90ae-41252a34d3b3) and start prompting.
+- Node.js (v14 or higher)
+- MySQL Server
+- npm or yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Database Setup
 
-**Use your preferred IDE**
+1. Create a MySQL database:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```sql
+CREATE DATABASE email_extraction;
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Run the database setup script:
 
-Follow these steps:
+```bash
+mysql -u root -p email_extraction < db-setup.sql
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Backend Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Install backend dependencies:
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+npm install --prefix backend
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2. Configure the database connection in `server.js` if needed.
+
+3. Start the backend server:
+
+```bash
+node server.js
+```
+
+The backend server will run on http://localhost:5000.
+
+### Frontend Setup
+
+1. Install frontend dependencies:
+
+```bash
+npm install
+```
+
+2. Start the frontend development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The frontend will be available at http://localhost:8080.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Usage
 
-**Use GitHub Codespaces**
+1. Open the application in your browser at http://localhost:8080
+2. Enter your email address and password
+3. Enter the 5-digit verification code (for testing, use code "12345")
+4. Access the dashboard to view extracted email information
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
+## API Endpoints
+
+- `POST /api/register` - Register a new user
+- `POST /api/login` - Login and receive verification code
+- `POST /api/verify` - Verify the 5-digit code
+- `POST /api/extract` - Extract information from an email
+- `GET /api/extractions/:userId` - Get all extractions for a user
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
 ## What technologies are used for this project?

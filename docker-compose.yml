@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # Frontend (React/Vite)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:5000
+    depends_on:
+      - backend
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+
+  # Backend (Node.js/Express)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=email_extraction
+      - JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+      - PYTHON_SERVICE_URL=http://ai-service:8001
+    depends_on:
+      - mysql
+      - ai-service
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # Python AI Service (FastAPI)
+  ai-service:
+    build:
+      context: ./EMAILS_EXT
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+    volumes:
+      - ./EMAILS_EXT:/app
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=email_extraction
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db-setup.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:

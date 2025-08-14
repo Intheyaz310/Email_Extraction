@@ -1,0 +1,15 @@
+# Email Configuration
+EMAIL_ADDRESS=github.stag@gmail.com
+EMAIL_PASSWORD=wqji bnea mgns mlga
+IMAP_SERVER=imap.gmail.com
+IMAP_PORT=993
+
+# Application Settings
+CHECK_INTERVAL_MINUTES=5
+EXCEL_FILENAME=job_emails.xlsx
+MAX_EMAILS_PER_CHECK=50
+
+# NLP Model Settings
+USE_SPACY=true
+USE_BERT=true
+CONFIDENCE_THRESHOLD=0.7 
